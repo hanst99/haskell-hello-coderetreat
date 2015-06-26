@@ -55,17 +55,25 @@ executable hello-coderetreat
   hs-source-dirs: src/
 
   -- Modules included in this executable, other than Main.
-  -- other-modules:
+  other-modules: Fibonacci
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
 
   -- Other library packages from which modules are imported.
-  build-depends:       base >=4.7 && <4.8,
-                        QuickCheck == 2.8.*
+  build-depends:       base >=4.7 && <4.8
 
   -- Directories containing source files.
   -- hs-source-dirs:
 
   -- Base language which the package is written in.
   default-language:    Haskell2010
+
+test-suite hello-coderetreat-test
+    type: exitcode-stdio-1.0
+    default-language: Haskell2010
+    main-is: Spec.hs
+    hs-source-dirs: src/, test/
+    build-depends: base >= 4.7 && < 4.8,
+                    QuickCheck == 2.8.*,
+                    hspec == 2.1.*
